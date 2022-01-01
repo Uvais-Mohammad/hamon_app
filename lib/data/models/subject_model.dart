@@ -1,17 +1,17 @@
 class Subject {
   final int id;
   final String name;
-  final String taecher;
-  final int credit;
+  final String teacher;
+  final int credits;
 
-  Subject({required this.id,required this.name,required this.taecher,required this.credit});
+  Subject({required this.id,required this.name,required this.teacher,required this.credits});
 
   factory Subject.fromJson(Map<String, dynamic> json) {
     return Subject(
       id: json['id'],
       name: json['name'],
-      taecher: json['teacher'],
-      credit: json['credit'],
+      teacher: json['teacher'],
+      credits: json['credits'],
     );
   }
 
@@ -19,8 +19,8 @@ class Subject {
     final Map<String, dynamic> data =  <String, dynamic>{};
     data['id'] = id;
     data['name'] = name;
-    data['teacher'] = taecher;
-    data['credit'] = credit;
+    data['teacher'] = teacher;
+    data['credits'] = credits;
     return data;
   }
 }

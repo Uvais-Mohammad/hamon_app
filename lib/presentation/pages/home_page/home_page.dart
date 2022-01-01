@@ -20,9 +20,16 @@ class HomePageState extends State<HomePage> {
     SubjectScreen(),
     ClassroomScreen(),
   ];
+
+  @override
+  void initState() {
+    super.initState();
+    Provider.of<AppProvider>(context, listen: false).getStudents();
+    Provider.of<AppProvider>(context, listen: false).getSubjects();
+    Provider.of<AppProvider>(context, listen: false).getClassrooms();
+  }
   @override
   Widget build(BuildContext context) {
-    print(_studentRepository.getStudents().whenComplete(() => print('done')));
     return Scaffold(
       appBar: AppBar(
         title: Image.asset(
