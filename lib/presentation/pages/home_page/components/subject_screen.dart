@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hamon_app/logic/app_provider.dart';
+import 'package:hamon_app/presentation/router/router.dart';
 import 'package:provider/provider.dart';
 
 class SubjectScreen extends StatelessWidget {
@@ -21,7 +22,10 @@ class SubjectScreen extends StatelessWidget {
                 return Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.pushNamed(context, subjectPageRoute,
+                          arguments: appProvider.subjects[index]);
+                    },
                     child: Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hamon_app/logic/app_provider.dart';
+import 'package:hamon_app/presentation/router/router.dart';
 import 'package:provider/provider.dart';
 
 class StudentScreen extends StatelessWidget {
@@ -22,7 +23,10 @@ class StudentScreen extends StatelessWidget {
                   title: Text(appProvider.students[index].name,
                       style: Theme.of(context).textTheme.headline6),
                   subtitle: Text(appProvider.students[index].email),
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.pushNamed(context, studentPageRoute,
+                        arguments: appProvider.students[index]);
+                  },
                 );
               })
           : const Center(child: CircularProgressIndicator()),
