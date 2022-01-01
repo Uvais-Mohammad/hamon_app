@@ -24,7 +24,7 @@ class ClassroomScreen extends StatelessWidget {
                   child: InkWell(
                     onTap: () {
                       Navigator.pushNamed(context, classroomPageRoute,
-                          arguments: appProvider.classrooms[index]);
+                          arguments: appProvider.classrooms[index].id);
                     },
                     child: Container(
                       decoration: BoxDecoration(

@@ -28,6 +28,7 @@ class SubjectPage extends StatelessWidget {
             const SizedBox(height: 20),
             Text('ID : ${subject.id}',
                 style: Theme.of(context).textTheme.headline4),
+                
           ],
         ));
   }

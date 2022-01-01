@@ -14,12 +14,16 @@ class AppProvider extends ChangeNotifier {
   List<Student> _students = [];
   List<Subject> _subjects = [];
   List<ClassRoom> _classrooms = [];
+  ClassRoom? _classroom;
   int _currentIndex = 0;
+  int _selectedSubject = 0;
 
   int get currentIndex => _currentIndex;
   List<Student> get students => _students;
   List<Subject> get subjects => _subjects;
   List<ClassRoom> get classrooms => _classrooms;
+  ClassRoom? get classroom => _classroom;
+  int get selectedSubject => _selectedSubject;
 
   void changeIndex(int index) {
     _currentIndex = index;
@@ -30,6 +34,7 @@ class AppProvider extends ChangeNotifier {
     _students = await _studentRepository.getStudents();
     notifyListeners();
   }
+
   void getSubjects() async {
     _subjects = await _subjectRepository.getSubjects();
     notifyListeners();
@@ -37,6 +42,24 @@ class AppProvider extends ChangeNotifier {
 
   void getClassrooms() async {
     _classrooms = await _classroomRepository.getClassrooms();
+    notifyListeners();
+  }
+
+  void getClassroom(int id) async {
+    _classroom = null;
+    _classroom = await _classroomRepository.getClassroom(id);
+    notifyListeners();
+  }
+
+  void setSubject(int index) {
+    _selectedSubject = index;
+    notifyListeners();
+  }
+
+  void assignSubject(int classId,int subjectId) async {
+    _classroom = null;
+    notifyListeners();
+    _classroom = await _classroomRepository.assignSubject(classId,subjectId);
     notifyListeners();
   }
 }

@@ -7,10 +7,10 @@ import 'package:http/http.dart' as http;
 
 class NetworkHandler {
   static const String baseUrl = "http://hamon-interviewapi.herokuapp.com";
-  static const apikey = "/?api_key=2C812";
+  static const apikey = "?api_key=2C812";
 
   Future get(String url) async {
-        try {
+    try {
       Uri formattedUrl = urlFormatter(url);
       debugPrint("GET: " + formattedUrl.toString());
       var response = await http.get(
@@ -42,12 +42,34 @@ class NetworkHandler {
     return response;
   }
 
-  Future<http.Response> put(String url, Map<String, dynamic> body) async {
-    Uri formattedUrl = urlFormatter(url);
-
-    var response = await http.put(formattedUrl,
-        body: jsonEncode(body), headers: {'Content-Type': 'application/json'});
-    return response;
+  Future patch(String url, Map<String, dynamic> body) async {
+    try {
+      Uri formattedUrl = urlFormatter(url);
+      debugPrint("PATCH: " + formattedUrl.toString());
+      print(jsonEncode(body));
+      
+      var response = await http.patch(formattedUrl,
+          body: jsonEncode(body),
+          headers: {'Content-Type': 'application/json'});
+          
+      //  await http.patch(
+      //   formattedUrl,
+      //   body: body,
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //   },
+      // );
+      if (response.statusCode == 200) {
+        return Success(code: response.statusCode, response: response.body);
+      }
+      return Failure(code: userInvalidResponse, response: "Invalid Response");
+    } on HttpException {
+      return Failure(code: noInternet, response: "No Internet");
+    } on FormatException {
+      return Failure(code: invalidFormat, response: "Invalid Format");
+    } catch (e) {
+      return Failure(code: unknownError, response: "Unknown Error");
+    }
   }
 
   Uri urlFormatter(String url) {

@@ -46,7 +46,7 @@ class Router {
         return MaterialPageRoute(
             builder: (_) => ChangeNotifierProvider.value(
                   value: appProvider,
-                  child:  ClassroomPage( classRoom: args as ClassRoom),
+                  child:  ClassroomPage( id: args as int,),
                 ));
       default:
         return MaterialPageRoute(

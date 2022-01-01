@@ -1,29 +1,24 @@
-class ClassRoom {
+class ClassRoom2 {
   final int id;
   final String name;
   final String layout;
   final int size;
-  var subject;
+  final int subject;
 
-  ClassRoom(
+  ClassRoom2(
       {required this.id,
       required this.name,
       required this.layout,
       required this.size,
-      this.subject});
+      required this.subject});
 
-  factory ClassRoom.fromJson(Map<String, dynamic> json) {
-    print(json['id'].runtimeType);
-    print(json['name'].runtimeType);
-    print(json['layout'].runtimeType);
-    print(json['size'].runtimeType);
-    print(json['subject'].runtimeType);
-    return ClassRoom(
+  factory ClassRoom2.fromJson(Map<String, dynamic> json) {
+    return ClassRoom2(
         id: json['id'],
         name: json['name'],
         layout: json['layout'],
         size: json['size'],
-        subject: json['subject'].runtimeType == int ? json['subject'] : '');
+        subject: json['subject']);
   }
 
   Map<String, dynamic> toJson() {
