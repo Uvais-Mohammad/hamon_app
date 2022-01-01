@@ -1,0 +1,14 @@
+const loginUrl = '/login';
+const addProductUrl = '/addProduct';
+const getReadyProductUrl = '/getReadyAddProduct';
+const getproductsUrl = '/getProducts';
+const getproductUrl = '/getProductByBarcode/';
+const updateProductUrl= '/updateProduct';
+const searchProduct = '/searchProduct/';
+const getStockLedgerUrl = '/getStockLedger';
+const addStockAdjustmentUrl = '/insertStockAdjust';
+const getReadyStockAdjustmentUrl = '/getReadyStockAdjust';
+const getbarcodeUrl = '/getProductbyName/';
+const getallproductsUrl='/getAllProducts';
+const insertMultiBarcodeUrl = '/insertMultiBarcode';
+const getMultiBarcodeUrl = '/getMultiBarcode';
