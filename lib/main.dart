@@ -14,8 +14,8 @@ class MyApp extends StatelessWidget {
       title: 'Hamon App',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primaryColor: const Color(0xFFFFCA28),
-        primarySwatch: MaterialColor(
+        primaryColor: const Color(0xFF4cae17),
+        primarySwatch: const MaterialColor(
           0xFF4cae17,
           <int, Color>{
             50: Color(0x1aF5E0C3),
@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
             300: Color(0xafF5E0C3),
             400: Color(0xffF5E0C3),
             500: Color(0xFF4cae17),
-            600: Color(0xffDEC29B),
+            600: Color(0xff100007),
             700: Color(0xffC9A87C),
             800: Color(0xffB28E5E),
             900: Color(0xff936F3E)

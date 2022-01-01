@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:hamon_app/presentation/pages/home_page.dart';
+import 'package:hamon_app/logic/app_provider.dart';
+import 'package:hamon_app/presentation/pages/home_page/home_page.dart';
 import 'package:hamon_app/presentation/pages/welcome_page.dart';
+import 'package:provider/provider.dart';
 
 const String initalRoute = '/';
 const String homeRoute = '/home';
+
+final AppProvider appProvider = AppProvider();
 
 class Router {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -12,7 +16,11 @@ class Router {
       case initalRoute:
         return MaterialPageRoute(builder: (_) => const WelcomePage());
       case homeRoute:
-        return MaterialPageRoute(builder: (_) => const HomePage());
+        return MaterialPageRoute(
+            builder: (_) => ChangeNotifierProvider.value(
+                  value: appProvider,
+                  child: const HomePage(),
+                ));
       default:
         return MaterialPageRoute(
             builder: (_) => const Scaffold(
