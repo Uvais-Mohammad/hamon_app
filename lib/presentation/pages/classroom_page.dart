@@ -156,7 +156,7 @@ class _ClassroomPageState extends State<ClassroomPage> {
                           return ChangeNotifierProvider.value(
                             value: appProvider,
                             child: AlertDialog(
-                              title: const Text('Assign Subject'),
+                              title: Text(appProvider.subjectButtonName),
                               content: DropdownButtonHideUnderline(
                                 child: ButtonTheme(
                                   alignedDropdown: true,
@@ -213,7 +213,7 @@ class _ClassroomPageState extends State<ClassroomPage> {
                         });
                   },
                   icon: const Icon(Icons.bookmark_add),
-                  label: const Text('Assign Subject'),
+                  label: Text(appProvider.subjectButtonName),
                   heroTag: 'btn2',
                 ),
               ],
