@@ -17,6 +17,7 @@ class AppProvider extends ChangeNotifier {
   ClassRoom? _classroom;
   int _currentIndex = 0;
   int _selectedSubject = 1;
+  String _subjectButtonName = "Assign Student";
 
   int get currentIndex => _currentIndex;
   List<Student> get students => _students;
@@ -24,6 +25,7 @@ class AppProvider extends ChangeNotifier {
   List<ClassRoom> get classrooms => _classrooms;
   ClassRoom? get classroom => _classroom;
   int get selectedSubject => _selectedSubject;
+  String get subjectButtonName => _subjectButtonName;
 
   void changeIndex(int index) {
     _currentIndex = index;
@@ -48,6 +50,9 @@ class AppProvider extends ChangeNotifier {
   void getClassroom(int id) async {
     _classroom = null;
     _classroom = await _classroomRepository.getClassroom(id);
+    _classroom!.subject.runtimeType != String
+        ? _subjectButtonName = "Edit Subject"
+        : _subjectButtonName = "Assign Subject";
     notifyListeners();
   }
 
