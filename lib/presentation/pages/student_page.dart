@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors_in_immutables, use_key_in_widget_constructors
+
 import 'package:flutter/material.dart';
 import 'package:hamon_app/data/models/student_model.dart';
 
@@ -8,7 +10,7 @@ class StudentPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Student Page'),
+        title: const Text('Student Page'),
       ),
       body: Column(
         children: [

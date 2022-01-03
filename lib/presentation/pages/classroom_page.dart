@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hamon_app/data/models/classroom_model.dart';
 import 'package:hamon_app/data/models/student_model.dart';
 import 'package:hamon_app/data/models/subject_model.dart';
 import 'package:hamon_app/logic/app_provider.dart';
@@ -14,7 +13,6 @@ class ClassroomPage extends StatefulWidget {
 }
 
 class _ClassroomPageState extends State<ClassroomPage> {
-  int? _selectedSubject;
   @override
   void initState() {
     super.initState();
@@ -23,8 +21,6 @@ class _ClassroomPageState extends State<ClassroomPage> {
 
   @override
   Widget build(BuildContext context) {
-    final _appProvider = Provider.of<AppProvider>(context);
-
     return Scaffold(
         appBar: AppBar(
           title: const Text('Classroom'),
@@ -74,7 +70,6 @@ class _ClassroomPageState extends State<ClassroomPage> {
         ),
         floatingActionButton: Consumer<AppProvider>(
           builder: (context, appProvider, _) {
-            final subjectlist = appProvider.subjects;
             return Row(
               children: [
                 const Spacer(),
@@ -87,7 +82,7 @@ class _ClassroomPageState extends State<ClassroomPage> {
                               return ChangeNotifierProvider.value(
                                 value: appProvider,
                                 child: AlertDialog(
-                                  title: const Text('Assign subject'),
+                                  title: const Text('Assign Student'),
                                   content: DropdownButtonHideUnderline(
                                     child: ButtonTheme(
                                       alignedDropdown: true,
@@ -161,7 +156,7 @@ class _ClassroomPageState extends State<ClassroomPage> {
                           return ChangeNotifierProvider.value(
                             value: appProvider,
                             child: AlertDialog(
-                              title: const Text('Assign classroom'),
+                              title: const Text('Assign Subject'),
                               content: DropdownButtonHideUnderline(
                                 child: ButtonTheme(
                                   alignedDropdown: true,

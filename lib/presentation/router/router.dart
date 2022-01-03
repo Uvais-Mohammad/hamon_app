@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hamon_app/data/models/classroom_model.dart';
 import 'package:hamon_app/data/models/student_model.dart';
 import 'package:hamon_app/data/models/subject_model.dart';
 import 'package:hamon_app/logic/app_provider.dart';

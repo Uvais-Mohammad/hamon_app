@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
             400: Color(0xffF5E0C3),
             500: Color(0xFF4cae17),
             600: Color(0xff100007),
-            700: Color(0xffC9A87C),
+            700: Color(0xFF4cae17),
             800: Color(0xffB28E5E),
             900: Color(0xff936F3E)
           },

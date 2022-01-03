@@ -16,7 +16,6 @@ class NetworkHandler {
       var response = await http.get(
         formattedUrl,
         headers: {
-          "Accept": "application/json",
           "Content-Type": "application/json",
         },
       );
@@ -46,21 +45,26 @@ class NetworkHandler {
     try {
       Uri formattedUrl = urlFormatter(url);
       debugPrint("PATCH: " + formattedUrl.toString());
-      print(jsonEncode(body));
-      
-      var response = await http.patch(formattedUrl,
-          body: jsonEncode(body),
-          headers: {'Content-Type': 'application/json'});
-          
-      //  await http.patch(
-      //   formattedUrl,
-      //   body: body,
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //   },
-      // );
+      // var formData = FormData();
+      // formData.append('subject', body['subject']);
+      // print(formData.toString());
+
+      // var response = await http.patch(formattedUrl, body: formData, headers: {
+      //   'Accept': 'application/json',
+      //   'Content-Type': 'multipart/form-data'
+      // });
+      var request = http.MultipartRequest('PATCH', formattedUrl)
+        ..fields['subject'] = body['subject'];
+      await request.send();
+      var response = await http.get(
+        formattedUrl,
+        headers: {
+          "Content-Type": "application/json",
+        },
+      );
       if (response.statusCode == 200) {
-        return Success(code: response.statusCode, response: response.body);
+        return Success(
+            code: response.statusCode, response: jsonDecode(response.body));
       }
       return Failure(code: userInvalidResponse, response: "Invalid Response");
     } on HttpException {
@@ -68,6 +72,8 @@ class NetworkHandler {
     } on FormatException {
       return Failure(code: invalidFormat, response: "Invalid Format");
     } catch (e) {
+      // throw e;
+      print(e);
       return Failure(code: unknownError, response: "Unknown Error");
     }
   }

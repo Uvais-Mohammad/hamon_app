@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hamon_app/data/repositories/student_repository.dart';
 import 'package:hamon_app/logic/app_provider.dart';
 import 'package:hamon_app/presentation/pages/home_page/components/classroom_screen.dart';
 import 'package:hamon_app/presentation/pages/home_page/components/student_screen.dart';
@@ -14,8 +13,7 @@ class HomePage extends StatefulWidget {
 }
 
 class HomePageState extends State<HomePage> {
-  final StudentRepository _studentRepository = StudentRepository();
-  final screens = [
+  final screens = const[
     StudentScreen(),
     SubjectScreen(),
     ClassroomScreen(),

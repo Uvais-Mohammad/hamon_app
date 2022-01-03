@@ -33,8 +33,7 @@ class ClassroomRepository {
 
   Future assignSubject(int classId, int subjectId) async {
     Map<String, dynamic> map = {};
-    map['subject'] = subjectId;
-    print(map);
+    map['subject'] = subjectId.toString();
     var response = await _networkHandler.patch(
         getClassroomUrl + '/' + classId.toString(), map);
     if (response.runtimeType == Success) {

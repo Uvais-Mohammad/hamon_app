@@ -16,7 +16,7 @@ class AppProvider extends ChangeNotifier {
   List<ClassRoom> _classrooms = [];
   ClassRoom? _classroom;
   int _currentIndex = 0;
-  int _selectedSubject = 0;
+  int _selectedSubject = 1;
 
   int get currentIndex => _currentIndex;
   List<Student> get students => _students;
@@ -56,10 +56,10 @@ class AppProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  void assignSubject(int classId,int subjectId) async {
+  void assignSubject(int classId, int subjectId) async {
     _classroom = null;
     notifyListeners();
-    _classroom = await _classroomRepository.assignSubject(classId,subjectId);
+    _classroom = await _classroomRepository.assignSubject(classId, subjectId);
     notifyListeners();
   }
 }

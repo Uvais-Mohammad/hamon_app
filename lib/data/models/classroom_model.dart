@@ -13,11 +13,6 @@ class ClassRoom {
       this.subject});
 
   factory ClassRoom.fromJson(Map<String, dynamic> json) {
-    print(json['id'].runtimeType);
-    print(json['name'].runtimeType);
-    print(json['layout'].runtimeType);
-    print(json['size'].runtimeType);
-    print(json['subject'].runtimeType);
     return ClassRoom(
         id: json['id'],
         name: json['name'],

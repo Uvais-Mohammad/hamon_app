@@ -19,7 +19,7 @@ class StudentScreen extends StatelessWidget {
                       appProvider.students[index].name[0],
                     ),
                   ),
-                  tileColor: Color(0xffE6FADB),
+                  tileColor:const Color(0xffE6FADB),
                   title: Text(appProvider.students[index].name,
                       style: Theme.of(context).textTheme.headline6),
                   subtitle: Text(appProvider.students[index].email),

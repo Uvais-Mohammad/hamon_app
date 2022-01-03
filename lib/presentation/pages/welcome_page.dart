@@ -42,9 +42,9 @@ class WelcomePage extends StatelessWidget {
               },
               child: Row(
                 mainAxisSize: MainAxisSize.min,
-                children: [
+                children: const[
                   Text('Get Started'),
-                  const SizedBox(width: 15),
+                   SizedBox(width: 15),
                   Icon(Icons.arrow_forward),
                 ],
               ),
