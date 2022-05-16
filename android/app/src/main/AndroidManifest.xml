@@ -1,8 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.hamon_app">
-    <uses-permission android:name="android.permission.INTERNET" />
+    package="com.example.parabeac_dem">
    <application
-        android:label="hamon_app"
+        android:label="parabeac_dem"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

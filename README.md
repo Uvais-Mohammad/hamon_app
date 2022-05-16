@@ -1,7 +1,6 @@
-# hamon_app
+# parabeac_dem
 
-A new Flutter project using provider state management
-
+A new Flutter project.
 
 ## Getting Started
 
