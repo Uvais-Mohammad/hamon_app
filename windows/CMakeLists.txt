@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.14)
-project(hamon_app LANGUAGES CXX)
+project(parabeac_dem LANGUAGES CXX)
 
-set(BINARY_NAME "hamon_app")
+set(BINARY_NAME "parabeac_dem")
 
 cmake_policy(SET CMP0063 NEW)
 
